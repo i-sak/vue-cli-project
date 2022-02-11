@@ -1,30 +1,31 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <!-- <h3>hello vue</h3> -->
+  <div>
+    <h1>{{ title }}</h1>
+    <h1>{{ cnt }}</h1>
+    <button @click="cnt++">증가</button>
+    <home-component></home-component>
+    <AppStatus></AppStatus>
   </div>
-  <router-view/>
+  <!-- <v-app>
+    <v-main>
+      <router-view/>
+    </v-main>
+  </v-app> -->
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import homeComponent from "./Home.vue"  // .vue 는 생략 가능
 
-#nav {
-  padding: 30px;
+// es6에서 모듈을 추출하는 방식 중 하나 export default
+export default {
+  name: 'App',
+  components : {
+    homeComponent
+  },
+  data: () => ({
+    title : "Hello Vuetify",
+    cnt : 1
+  }),
 }
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+</script>
