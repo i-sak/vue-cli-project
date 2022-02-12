@@ -1,11 +1,9 @@
 <template>
-  <!-- <h3>hello vue</h3> -->
-  <div>
-    <h1>{{ title }}</h1>
-    <h1>{{ cnt }}</h1>
-    <button @click="cnt++">증가</button>
-    <home-component></home-component>
-    <AppStatus></AppStatus>
+  <div style="background-color : skyblue; padding : 5px;">
+    <h1> name : {{ name }} </h1>
+    <v-btn elevation="4" @click="changeName()">이름 변경</v-btn>
+    <home-component v-bind:nameOfChild="name"></home-component>
+    <!-- <AppStatus></AppStatus> -->
   </div>
   <!-- <v-app>
     <v-main>
@@ -24,8 +22,12 @@ export default {
     homeComponent
   },
   data: () => ({
-    title : "Hello Vuetify",
-    cnt : 1
+    name : "vue project"
   }),
+  methods : {
+    changeName () { // changeName = function() { }
+      this.name = "Vuetify"
+    }
+  }
 }
 </script>

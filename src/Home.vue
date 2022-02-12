@@ -1,14 +1,14 @@
 <template>
-    <div>
-        <AppStatus></AppStatus>
-        <h1> {{ homeTitle }} </h1>
+    <div style="background-color : yellow; margin : 5px; ">
+        <!-- <AppStatus></AppStatus> -->
+        <h1> {{ nameOfChild }} </h1>
     </div>
 </template>
 <script>
-
 export default {
+    props : ["nameOfChild"],
     data : ()=>({
-        homeTitle : "홈 입니다."
+        
     })
 }
 </script>
