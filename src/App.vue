@@ -2,7 +2,7 @@
   <div style="background-color : skyblue; padding : 5px;">
     <h1> name : {{ name }} </h1>
     <v-btn elevation="4" @click="changeName()">이름 변경</v-btn>
-    <home-component v-bind:nameOfChild="name"></home-component>
+    <home-component ></home-component>
     <!-- <AppStatus></AppStatus> -->
   </div>
   <!-- <v-app>
