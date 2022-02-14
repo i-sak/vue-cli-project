@@ -14,9 +14,11 @@
             v-model="user.age"
           ></v-text-field>
         <v-btn @click="changeName2">부모-자식 Name 수정</v-btn>
+        <v-btn @click="sendToSibling">형제간 데이터 전송</v-btn>
     </div>
 </template>
 <script>
+
 export default {
     props : // ["nameOfChild"],
     {
@@ -42,6 +44,9 @@ export default {
     methods : {
         changeName2 () {
             this.$emit('child', this.user)
+        },
+        sendToSibling () {
+            this.emitter.emit("sibling", this.user)
         }
     },
 }

@@ -7,7 +7,7 @@
       :name="user.name"
       :age="user.age"
       @child="parents"></home-component>
-    <!-- <AppStatus></AppStatus> -->
+    <AppStatus></AppStatus>
   </div>
   <!-- <v-app>
     <v-main>
