@@ -1,8 +1,12 @@
 <template>
   <div style="background-color : skyblue; padding : 5px;">
-    <h1> name : {{ name }} </h1>
+    <h1> user.name : {{ user.name }} </h1>
+    <h1> user.age : {{ user.age }} </h1>
     <v-btn elevation="4" @click="changeName()">이름 변경</v-btn>
-    <home-component ></home-component>
+    <home-component 
+      :name="user.name"
+      :age="user.age"
+      @child="parents"></home-component>
     <!-- <AppStatus></AppStatus> -->
   </div>
   <!-- <v-app>
@@ -22,11 +26,19 @@ export default {
     homeComponent
   },
   data: () => ({
-    name : "vue project"
+    user : {
+      name : "vuer",
+      age : 20
+    }
   }),
   methods : {
     changeName () { // changeName = function() { }
       this.name = "Vuetify"
+    },
+    parents (user) {
+      console.log(user)
+      this.user.name = user.name
+      this.user.age = user.age
     }
   }
 }
