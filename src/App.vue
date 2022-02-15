@@ -3,6 +3,7 @@
     <h2> user.name : {{ user.name }} </h2>
     <h2> user.age : {{ user.age }} </h2>
     <h2> {{ getDateAndTime(createAt) }} </h2>
+    <h2> {{ helloToMixin }}</h2>
     <v-btn elevation="4" @click="changeName()">이름 변경</v-btn>
     <home-component 
       :name="user.name"
@@ -34,7 +35,13 @@ export default {
     },
     createAt : null,
   }),
+  computed: {
+    helloToMixin() {
+      return this.mixinData + ' 안녕하세요.'
+    }
+  },
   created () {
+    console.log('App Component')
     this.createAt = new Date()
   },
   methods : {
@@ -46,6 +53,16 @@ export default {
       this.user.name = user.name
       this.user.age = user.age
     },
+    getDateAndTime(date) {
+        if( date != null) {
+            let hour = date.getHours()
+            let minutes = date.getMinutes()
+            let fullDate = `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`
+            return `${fullDate} ${hour}:${minutes}` + 'aaa'
+        } else {
+            return null
+        }
+      }
   },
   mixins : [dateFormat]
 }

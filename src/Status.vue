@@ -19,6 +19,7 @@ export default {
         date : null
     }),
     created() {
+        console.log("Status component")
         this.date = new Date()
     },
     mounted() {
